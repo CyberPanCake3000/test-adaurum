@@ -20,4 +20,13 @@
         </div>
     </div>
 </div>
+
+    <div>
+        @foreach($companies as $company)
+            <div>
+                {{ $company->id }}
+            </div>
+        @endforeach
+        {!! $companies->links() !!}
+    </div>
 @endsection
