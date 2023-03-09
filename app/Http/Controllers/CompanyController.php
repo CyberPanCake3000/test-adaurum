@@ -12,7 +12,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::paginate(10);
+        return view('home', ["companies" => $companies]);
     }
 
     /**
@@ -20,7 +21,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
@@ -28,7 +29,14 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+        ]);
+
+        $company = Company::create($request->all());
+
+        return redirect()->route('home')->with('message', 'Компания' . $company->name . " успешно создана!");
     }
 
     /**
@@ -36,7 +44,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return view('companies.show', ['company' => $company]);
     }
 
     /**
@@ -60,6 +68,7 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $company->delete;
+        return view('home', ['message' => 'Комания №'. $company->id . ' успешно удалена!']);
     }
 }
