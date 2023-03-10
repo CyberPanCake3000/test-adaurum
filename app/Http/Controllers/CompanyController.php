@@ -38,7 +38,7 @@ class CompanyController extends Controller
 
         $company = Company::create($request->all());
 
-        return redirect()->route('home')->with('message', 'Компания' . $company->name . " успешно создана!");
+        return redirect()->route('home')->with('message', 'Компания ' . $company->name . " успешно создана!");
     }
 
     /**

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('inn');
-            $table->tinyText('info');
+            $table->tinyText('info')->nullable();
             $table->string('ceo');
             $table->string('address');
             $table->string('phone');

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('companies.store') }}" class="col-md-6 col-12" method="POST">
+        <form id="createCompany" action="{{ route('companies.store') }}" class="col-md-6 col-12" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name">Название компании</label>
@@ -10,7 +10,7 @@
             </div>
             <div class="mb-3">
                 <label for="inn">ИНН</label>
-                <input type="text" name="inn" class="form-control text-white" id="inn">
+                <input type="number" name="inn" class="form-control text-white" id="inn">
             </div>
             <div class="mb-3">
                 <label for="info">Общая информация</label>
@@ -26,7 +26,7 @@
             </div>
             <div class="mb-3">
                 <label for="phone">Телефон</label>
-                <input type="text" name="phone" class="form-control text-white" id="phone">
+                <input type="number" name="phone" class="form-control text-white" id="phone">
             </div>
             <div class="mb-3">
                 <button class="btn btn-primary text-white" type="submit">Сохранить</button>
