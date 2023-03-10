@@ -71,7 +71,8 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        $company->delete;
-        return view('home', ['message' => 'Комания №'. $company->id . ' успешно удалена!']);
+        $company->delete();
+        return redirect()->route('home')->with(['message' => 'Комания №'. $company->id . ' успешно удалена!']);
     }
+
 }
