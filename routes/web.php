@@ -15,5 +15,5 @@ Route::get('/', function (){
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::resource('companies', CompanyController::class)->except('edit', 'update');
-Route::post('createNote', [NoteController::class, 'create'])->name('createNote');
+Route::resource('companies', CompanyController::class)->except('edit', 'update')->middleware('auth');
+Route::post('createNote', [NoteController::class, 'create'])->name('createNote')->middleware('auth');
