@@ -289,7 +289,7 @@
 
     <div class="modal fade text-dark" id="noteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('createNote') }}" method="POST">
+            <form class="modal-content" id="noteForm" action="{{ route('createNote') }}" method="POST">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="noteModalLabel">Оставить комментарий</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -302,8 +302,8 @@
                            hidden>
                     <input type="text" class="form-control" id="property" name="property" value="" hidden>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Комментарий</label>
-                        <textarea class="form-control bg-white" id="message-text" name="note"></textarea>
+                        <label for="note" class="col-form-label">Комментарий</label>
+                        <textarea class="form-control bg-white" id="note" name="note"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

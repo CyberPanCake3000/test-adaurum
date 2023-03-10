@@ -14,7 +14,7 @@
 
         <div class="row g-3 py-2">
             @foreach($companies as $company)
-                <div class="col-6 col-md-4 ">
+                <div class="col-12 col-sm-6 col-md-4 ">
                     <a class="text-primary fw-bold nav-link"
                        href="{{ route('companies.show', $company->id) }}">{{ $company->name }}</a>
 

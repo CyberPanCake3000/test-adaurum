@@ -18,10 +18,22 @@ $(document).ready(function () {
             modalTitle.textContent = `Вы комментируете:  ${properties[property]}`;
             modalBodyInput.value = property;
         });
+
+    }
+
+    const noteForm = $('#noteForm');
+    if(noteForm){
+        noteForm.validate({
+            rules:{
+                'note': {
+                    required: true,
+                    minlength: 5,
+                },
+            },
+        });
     }
 
     const createForm = $('#createCompany');
-
     if(createForm){
         $("input[type='num']").on("keypress", function (event) {
             var key = event.charCode || event.keyCode || 0;
