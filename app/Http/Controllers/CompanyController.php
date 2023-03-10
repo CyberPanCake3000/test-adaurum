@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Note;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -44,7 +46,8 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('companies.show', ['company' => $company]);
+        $notes = Note::where('user_id', '=', Auth::id())->where('company_id', '=', $company->id)->get();
+        return view('companies.show', ['company' => $company, 'notes' => $notes]);
     }
 
     /**

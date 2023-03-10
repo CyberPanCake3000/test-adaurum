@@ -16,17 +16,13 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
 
-            $table->tinyText('name');
-            $table->tinyText('inn');
-            $table->tinyText('info');
-            $table->tinyText('ceo');
-            $table->tinyText('address');
-            $table->tinyText('phone');
+            $table->enum('property', ['name', 'inn', 'info', 'ceo', 'address', 'phone', 'company']);
+            $table->tinyText('note');
         });
     }
 
